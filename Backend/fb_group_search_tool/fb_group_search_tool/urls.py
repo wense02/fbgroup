@@ -16,9 +16,10 @@ Including another URLconf
 """
 from groups import views
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('search-groups/', views.search_groups, name='search_groups'),
+    path('', views.FacebookGroupView.as_view(), name="Group")
 ]

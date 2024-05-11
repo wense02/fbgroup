@@ -1,0 +1,8 @@
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 10, 2024 - 23:43:27
+Django version 5.0.3, using settings 'fb_group_search_tool.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+
