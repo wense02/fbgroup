@@ -1,7 +1,27 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 import requests
-from .models import FacebookGroup
+from . models import FacebookGroup
+from rest_framework.views import APIView
+from . models import *
+from . serializer import *
+from rest_framework.response import Response
+
+
+class FacebookGroupView(APIView):
+    def get(self, request):
+        output = [{"name": output.name,
+                  "description": output.description,
+                  "member_count": output.member_count,
+                  "is_private": output.is_private}
+                  for output in FacebookGroup.objects.all()]
+        return Response(output)
+    def post(self, request):
+        serializer = FacebookGroupSerializer(data=request.data)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save
+            return Response(serializer.data)
+
 
 def search_groups(request):
     # Handle GET request to search groups
