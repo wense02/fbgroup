@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import React from 'react';
 class App extends React.Component {
 
   state = { details: [], }
@@ -22,7 +22,16 @@ class App extends React.Component {
       <div>
         <header>Data Generated From Django</header>
         <hr></hr>
-        {this.state.details}
+        {this.state.details.map((output, id) => (
+          <div key={id}>
+            <div>
+            <h2>{output.name}</h2>
+            <h3>{output.description}</h3>
+            <h4>{output.member_count}</h4>
+            <h5>{output.is_private}</h5>
+            </div>
+          </div>
+        ) )}
       </div>
     )
   }
